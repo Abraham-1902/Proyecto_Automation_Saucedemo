@@ -15,9 +15,9 @@ Validar el correcto funcionamiento de los módulos principales de la aplicación
 - Interacciones críticas del usuario
 
 **Aplicando:**
-- ✔️ Pruebas funcionales
-- ✔️ Validaciones negativas (manejo de errores)
-- ✔️ Buenas prácticas de automatización
+- ✔️ Pruebas funcionales  
+- ✔️ Validaciones negativas (manejo de errores)  
+- ✔️ Buenas prácticas de automatización  
 
 ---
 
@@ -33,70 +33,50 @@ El proyecto sigue una estructura modular clara:
 ┣ 📁 reports        # Resultados de ejecución
 ┣ 📄 conftest.py    # Configuración global (fixtures)
 ┣ 📄 pytest.ini     # Configuración del runner
-┗ 📄 README.md      # Documentación
-🛠️ Stack Tecnológico
+┗ 📄 README.md      # Documentaciónno
+
+```
+
+---
+
+
+# 🛠️ Stack Tecnológico
+
+```text
 Python 3.x
-
 Playwright
-
 Pytest
-
 Pytest-HTML
+```
 
-⚡ Quick Start (Ejecución rápida)
-Copia y pega estos comandos en tu terminal para configurar y ejecutar el proyecto:
+---
 
-Bash
-# 1. Clonar repositorio
-git clone [https://github.com/Abraham-1902/Proyecto_Automation_Saucedemo.git](https://github.com/Abraham-1902/Proyecto_Automation_Saucedemo.git)
-cd Proyecto_Automation_Saucedemo
+## 🧪 Escenarios de Prueba
 
-# 2. Crear y activar entorno virtual
-python -m venv venv
-.\venv\Scripts\activate
+### 🔐 Login
 
-# 3. Instalar dependencias
-pip install pytest-playwright pytest-html
-playwright install chromium
+- [x] 🟢 Login exitoso con diferentes usuarios  
+- [x] 🟢 Validación de credenciales inválidas  
+- [x] 🟢 Usuario bloqueado (`locked_out_user`)  
+- [x] 🟢 Validación de campos obligatorios  
 
-# 4. Ejecutar pruebas
-pytest
-🧪 Escenarios de Prueba
-🔐 Login
-[x] Login exitoso con diferentes usuarios.
+### 🛒 Inventario (En desarrollo)
 
-[x] Validación de credenciales inválidas.
+- [x] 🟡Verificación de carga de productos  
+- [ ] 🟡Funcionalidad **Add to Cart**  
+- [ ] 🟡Validación del contador del carrito  
 
-[x] Usuario bloqueado (locked_out_user).
+---
 
-[x] Validación de campos obligatorios.
+## 🧠 Buenas Prácticas Implementadas
 
-🛒 Inventario (En desarrollo)
-[x] Verificación de carga de productos.
+- **Page Object Model (POM):** Desacoplamiento de la interfaz y la lógica  
+- **Data-Driven Testing:** Pruebas basadas en datos externos  
+- **Fixtures:** Uso eficiente de recursos con Pytest  
+- **Clean Code:** Código legible y mantenible  
 
-[ ] Funcionalidad "Add to Cart".
+---
 
-[ ] Validación del contador del carrito.
+## 👨‍💻 Autor
 
-📊 Reportes y Evidencia
-Al ejecutar las pruebas, se genera automáticamente el archivo: reporte.html
-
-El reporte incluye:
-
-Estado de cada test (Pass/Fail).
-
-Tiempo de ejecución.
-
-Detalles técnicos en caso de fallo.
-
-🧠 Buenas Prácticas Implementadas
-Page Object Model (POM): Desacoplamiento de la interfaz y la lógica.
-
-Data-Driven Testing: Pruebas basadas en datos externos.
-
-Fixtures: Uso eficiente de recursos con Pytest.
-
-Clean Code: Código legible y mantenible.
-
-👨‍💻 Autor
-Abraham QA Automation Engineer
+**Abraham - QA Automation Engineer**
