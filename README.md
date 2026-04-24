@@ -1,41 +1,94 @@
-# 🧪 Proyecto de Automatización: SauceDemo
+# 🧪 QA Automation Project - SauceDemo
 
-Este repositorio contiene un framework de pruebas automatizadas profesional desarrollado para la plataforma **SauceDemo**. El proyecto utiliza **Python** y **Playwright**, aplicando el patrón de diseño **Page Object Model (POM)** para garantizar un código limpio, mantenible y escalable.
+Este repositorio contiene un **framework de automatización de pruebas end-to-end** desarrollado sobre la aplicación web **SauceDemo**, enfocado en validar funcionalidades críticas mediante buenas prácticas de QA.
+
+El proyecto implementa **Python + Playwright** junto con el patrón **Page Object Model (POM)**, garantizando un código **escalable, mantenible y alineado a estándares profesionales**.
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
-El framework está organizado para separar la lógica de los elementos de la interfaz de la lógica de las pruebas:
-* **pages/**: Contiene las clases de las páginas (Locators y Acciones).
-* **tests/**: Scripts de prueba que ejecutan los escenarios de validación.
-* **data/**: Gestión de datos de prueba mediante archivos JSON (Data-Driven Testing).
-* **pytest.ini**: Configuración centralizada del runner (Modo visible, SlowMo y Reportes).
-* **conftest.py**: Configuración de fixtures globales para la inicialización del navegador.
+## 🎯 Objetivo del Proyecto
+
+Validar el correcto funcionamiento de los módulos principales de la aplicación:
+
+- Autenticación de usuarios
+- Gestión de inventario
+- Interacciones críticas del usuario
+
+Aplicando:
+- ✔️ Pruebas funcionales  
+- ✔️ Validaciones negativas (manejo de errores)  
+- ✔️ Buenas prácticas de automatización  
+
+---
+
+## 🏗️ Arquitectura del Framework
+
+El proyecto sigue una estructura modular clara:
+
+
+📁 Proyecto_Automation_Saucedemo
+┣ 📁 pages → Page Objects (locators + acciones)
+┣ 📁 tests → Casos de prueba
+┣ 📁 data → Datos de prueba (JSON)
+┣ 📁 reports → Resultados de ejecución
+┣ 📄 conftest.py → Configuración global (fixtures)
+┣ 📄 pytest.ini → Configuración del runner
+┣ 📄 README.md
+
 
 ---
 
 ## 🛠️ Stack Tecnológico
-| Herramienta | Uso |
-| :--- | :--- |
-| **Python 3.x** | Lenguaje de programación principal. |
-| **Playwright** | Motor de automatización para interacciones web modernas. |
-| **Pytest** | Framework de pruebas para orquestar la ejecución y assertions. |
-| **Pytest-HTML** | Generador de reportes visuales detallados en formato HTML. |
+
+- **Python 3.x**
+- **Playwright**
+- **Pytest**
+- **Pytest-HTML**
 
 ---
 
-## 🚀 Configuración y Ejecución Técnica
+## ⚡ Quick Start (Ejecución rápida)
 
-Para poner en marcha el proyecto, ejecuta los siguientes comandos en tu terminal:
-
+### 1. Clonar repositorio
 ```bash
-# Clonar repositorio, configurar entorno e instalar dependencias
-git clone [https://github.com/Abraham-1902/Proyecto_Automation_Saucedemo.git](https://github.com/Abraham-1902/Proyecto_Automation_Saucedemo.git)
+git clone https://github.com/Abraham-1902/Proyecto_Automation_Saucedemo.git
 cd Proyecto_Automation_Saucedemo
+2. Crear entorno virtual
 python -m venv venv
 .\venv\Scripts\activate
+3. Instalar dependencias
 pip install pytest-playwright pytest-html
-playwright install chromium
-
-# Ejecutar las pruebas
+playwright install
+4. Ejecutar pruebas
 pytest
+🧪 Escenarios de Prueba
+🔐 Login
+Login exitoso con diferentes usuarios
+Validación de credenciales inválidas
+Usuario bloqueado (locked_out_user)
+Validación de campos obligatorios
+🛒 Inventario (En desarrollo)
+Verificación de carga de productos
+Funcionalidad "Add to Cart"
+Validación del contador del carrito
+📊 Reportes y Evidencia
+
+Al ejecutar las pruebas se genera automáticamente:
+
+📄 reporte.html
+
+Incluye:
+
+Estado de cada test (Pass/Fail)
+Tiempo de ejecución
+Detalles técnicos en caso de fallo
+🧠 Buenas Prácticas Implementadas
+Page Object Model (POM)
+Data-Driven Testing
+Uso de fixtures con Pytest
+Separación de responsabilidades
+Código limpio y mantenible
+👨‍💻 Autor
+
+Abraham
+QA Automation Engineer
