@@ -1,49 +1,38 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Playwright](https://img.shields.io/badge/playwright-%232EAD33.svg?style=for-the-badge&logo=playwright&logoColor=white)
 ![Pytest](https://img.shields.io/badge/pytest-%230A9EDC.svg?style=for-the-badge&logo=pytest&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?sty
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
 # 🚀 SauceDemo End-to-End Automation Framework
 
-Este repositorio alberga un framework de automatización de pruebas de alto impacto para la plataforma **SauceDemo**. Se ha diseñado bajo estándares profesionales, priorizando la **trazabilidad**, la **escalabilidad** y la **visibilidad de resultados**.
-
-## 🛠️ Stack Tecnológico & Patrones
-* **Lenguaje:** Python 3.x
-* **Motor de Pruebas:** Playwright
-* **Test Runner:** Pytest
-* **Patrón de Diseño:** Page Object Model (POM)
-* **Reportes:** Pytest-HTML / Playwright Trace Viewer
+Framework de automatización E2E desarrollado sobre **SauceDemo**, diseñado para validar flujos críticos de negocio con un enfoque en **calidad, mantenibilidad y ejecución automatizada**.
 
 ---
 
-## 🗺️ Roadmap de Implementación (Sprints)
+## 🎯 Objetivo
 
-Utilizamos una metodología orientada a **Sprints** para garantizar la entrega continua de valor y una cobertura total del sistema.
+Validar de forma confiable los principales flujos de la aplicación:
 
-### 🟢 Sprint 1: Gestión de Acceso & Seguridad (Completado)
-*Foco: Validar el flujo de autenticación y el manejo de estados de usuario.*
-- [x] **POM:** Implementación de `LoginPage` con selectores optimizados.
-- [x] **Test:** Login exitoso con múltiples perfiles (Data-Driven).
-- [x] **Test:** Validación de usuario bloqueado (`locked_out_user`).
-- [x] **Test:** Control de errores por credenciales inválidas y campos vacíos.
-- [x] **Evidencia:** [Ver Reporte y Capturas del Sprint 1](./docs/evidencias/sprint1/)
+- 🔐 Autenticación de usuarios  
+- 🛒 Gestión de inventario  
+- 💳 Flujo de compra (en progreso)  
 
-### 🟡 Sprint 2: Inventario & Experiencia de Usuario (En Desarrollo)
-*Foco: Asegurar que el catálogo de productos sea funcional y preciso.*
-- [x] **POM:** `InventoryPage` y componentes de productos.
-- [x] **Test:** Verificación de carga correcta de imágenes y textos.
-- [ ] **Test:** Automatización de filtros de ordenamiento (A-Z, Z-A, Precio).
-- [ ] **Test:** Navegación detallada al producto individual.
+Aplicando:
 
-### ⚪ Sprint 3: E-Commerce Core (Backlog)
-*Foco: El corazón del negocio; desde el carrito hasta la confirmación de orden.*
-- [ ] Gestión del Carrito (Agregar/Quitar productos).
-- [ ] Flujo de Checkout (Información del cliente, impuestos y totales).
+- ✔️ Pruebas funcionales  
+- ✔️ Escenarios negativos  
+- ✔️ Data-Driven Testing  
+- ✔️ Buenas prácticas de automatización  
 
-### ⚪ Sprint 4: Calidad & CI/CD (Planificado)
-*Foco: Robustez técnica y ejecución automatizada.*
-- [ ] Implementación de reportes HTML automáticos con capturas en fallos.
-- [ ] Configuración de GitHub Actions para integración continua.
+---
+
+## 🛠️ Stack Tecnológico
+
+- **Lenguaje:** Python 3.x  
+- **Automatización:** Playwright  
+- **Test Runner:** Pytest  
+- **Patrón:** Page Object Model (POM)  
+- **Reportes:** Pytest-HTML + Playwright Trace  
 
 ---
 
@@ -62,15 +51,23 @@ Utilizamos una metodología orientada a **Sprints** para garantizar la entrega c
 
 ---
 
+## ⚡ Ejecución rápida
 
-# 🛠️ Stack Tecnológico
+git clone https://github.com/Abraham-1902/Proyecto_Automation_Saucedemo.git
+cd Proyecto_Automation_Saucedemo
 
-```text
-Python 3.x
-Playwright
-Pytest
-Pytest-HTML
-```
+python -m venv venv
+
+# Windows
+.\venv\Scripts\activate
+
+# Mac/Linux
+source venv/bin/activate
+
+pip install pytest-playwright pytest-html
+playwright install chromium
+
+pytest
 
 ---
 
@@ -93,10 +90,10 @@ Pytest-HTML
 
 ## 🧠 Buenas Prácticas Implementadas
 
-- **Page Object Model (POM):** Desacoplamiento de la interfaz y la lógica  
-- **Data-Driven Testing:** Pruebas basadas en datos externos  
-- **Fixtures:** Uso eficiente de recursos con Pytest  
-- **Clean Code:** Código legible y mantenible  
+- **Page Object Model (POM):** separación de lógica y UI  
+- **Data-Driven Testing:** parametrización con datos externos  
+- **Fixtures (Pytest):** reutilización y eficiencia  
+- **Clean Code:** legibilidad y mantenibilidad  
 
 ---
 
