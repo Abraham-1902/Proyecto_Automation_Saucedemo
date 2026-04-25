@@ -82,9 +82,15 @@ pytest
 
 ### 🛒 Inventario (En desarrollo)
 
-- [x] 🟡Verificación de carga de productos  
-- [ ] 🟡Funcionalidad **Add to Cart**  
-- [ ] 🟡Validación del contador del carrito  
+- [x] 🟢Verificación de carga de productos (Precio y Nombre) 
+- [ ] 🟡Ordenamiento por Precio (Ascendente)  
+- [ ] 🟡Ordenamiento por Nombre (Z a A)
+- [ ] 🟡Acceso al Detalle
+- [ ] 🟡Agregar Producto Individual
+- [ ] 🟡Agregar Múltiples Productos
+- [ ] 🟡Remover desde el Inventario
+- [ ] 🟡Remover desde la Página del Carrito
+- [ ] 🟡Persistencia del Carrito
 
 ---
 
