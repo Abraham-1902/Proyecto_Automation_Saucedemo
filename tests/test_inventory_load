@@ -1,0 +1,35 @@
+# tests/test_inventory_load.py
+from playwright.sync_api import Page, expect
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+
+def test_validate_inventory_items_load(page: Page):
+    """
+    ID: TC008
+    Escenario: Validación de Carga de Productos
+    Resultado Esperado: Verificar que la lista de inventario muestre al menos 6 productos 
+    con sus respectivos nombres, descripciones y precios.
+    """
+    # 1. Instanciar páginas
+    login = LoginPage(page)
+    inventory = InventoryPage(page)
+
+    # 2. Precondición: Login exitoso
+    page.goto("https://www.saucedemo.com/")
+    login.login_to_app("standard_user", "secret_sauce")
+
+    # 3. Validación 1: Conteo de productos
+    count = inventory.inventory_items.count()
+    assert count >= 6, f"Se esperaba al menos 6 productos, pero se encontraron {count}"
+
+    # 4. Validación 2: Integridad de datos (Bucle)
+    for i in range(count):
+        item = inventory.inventory_items.nth(i)
+        
+        # Verificamos visibilidad de elementos clave
+        expect(item.locator(inventory.item_name)).to_be_visible()
+        expect(item.locator(inventory.item_desc)).to_be_visible()
+        expect(item.locator(inventory.item_price)).to_be_visible()
+        
+        # Validación extra de formato de precio
+        expect(item.locator(inventory.item_price)).to_contain_text("$")
