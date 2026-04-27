@@ -1,0 +1,33 @@
+# tests/test_inventory_sort.py
+from playwright.sync_api import Page, expect
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+
+def test_sort_products_price_low_to_high(page: Page):
+    """
+    ID: TC009
+    Escenario: Ordenamiento por Precio (Low to High)
+    Resultado Esperado: Los productos deben mostrarse ordenados de menor a mayor precio.
+    """
+    login = LoginPage(page)
+    inventory = InventoryPage(page)
+
+    # 1. Precondición: Login
+    page.goto("https://www.saucedemo.com/")
+    login.login_to_app("standard_user", "secret_sauce")
+
+    # 2. Acción: Cambiar el filtro a "Price (low to high)"
+    # El valor 'lohi' es el atributo 'value' del HTML para esta opción
+    inventory.sort_dropdown.select_option("lohi")
+
+    # 3. Capturar todos los precios
+    # Usamos all_inner_texts() para obtener una lista de strings como ['$7.99', '$9.99'...]
+    raw_prices = inventory.page.locator(".inventory_item_price").all_inner_texts()
+
+    # 4. Limpieza de datos: Convertir ['$9.99'] -> [9.99]
+    cleaned_prices = [float(p.replace("$", "")) for p in raw_prices]
+
+    # 5. ASERCIÓN: Comparar la lista obtenida con una lista ordenada por Python
+    expected_prices = sorted(cleaned_prices)
+    
+    assert cleaned_prices == expected_prices, f"El orden es incorrecto. Obtenido: {cleaned_prices}"
