@@ -11,21 +11,21 @@ def test_sort_products_price_high_to_low(page: Page):
     login = LoginPage(page)
     inventory = InventoryPage(page)
 
-    # 1. Precondición: Acceso al sistema
+    # 1. Precondición: Acceso e inicio de sesión
     page.goto("https://www.saucedemo.com/")
     login.login_to_app("standard_user", "secret_sauce")
 
-    # 2. Acción: Cambiar filtro a "Price (high to low)"
-    # Seleccionamos por el valor interno del HTML: 'hilo'
+    # 2. Acción: Seleccionar el filtro "Price (high to low)"
+    # El valor interno en el HTML para esta opción es 'hilo'
     inventory.sort_dropdown.select_option("hilo")
 
-    # 3. Extracción: Capturar los precios actuales de la web
+    # 3. Extracción: Capturar los precios de la interfaz
     raw_prices = inventory.page.locator(".inventory_item_price").all_inner_texts()
 
-    # 4. Transformación: Limpiar el símbolo '$' y convertir a número (float)
+    # 4. Transformación: Limpieza de símbolos y conversión a float
     cleaned_prices = [float(p.replace("$", "")) for p in raw_prices]
 
-    # 5. Validación: Comparar contra un orden descendente garantizado por Python
+    # 5. Validación: Comparar contra orden descendente (reverse=True)
     expected_order = sorted(cleaned_prices, reverse=True)
     
     assert cleaned_prices == expected_order, f"El orden descendente falló. Obtenido: {cleaned_prices}"
