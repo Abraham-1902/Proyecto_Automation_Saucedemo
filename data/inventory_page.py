@@ -9,3 +9,4 @@ class InventoryPage:
         self.item_name = ".inventory_item_name"
         self.item_desc = ".inventory_item_desc"
         self.item_price = ".inventory_item_price"
+        self.sort_dropdown = page.locator(".product_sort_container")
