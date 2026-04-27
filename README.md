@@ -83,7 +83,8 @@ pytest
 ### 🛒 Inventario (En desarrollo)
 
 - [x] 🟢Verificación de carga de productos (Precio y Nombre) 
-- [ ] 🟡Ordenamiento por Precio (Ascendente)  
+- [ ] 🟢Ordenamiento por Precio (Ascendente)
+- [ ] 🟢Ordenamiento por Precio (Descendente) 
 - [ ] 🟡Ordenamiento por Nombre (Z a A)
 - [ ] 🟡Acceso al Detalle
 - [ ] 🟡Agregar Producto Individual
