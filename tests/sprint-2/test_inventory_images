@@ -1,0 +1,33 @@
+# Archivo: tests/test_inventory_images.py
+
+from playwright.sync_api import Page
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+
+def test_TC013_product_images_consistency(login_page, page: Page):
+    """
+    ID: TC013
+    Escenario: Consistencia de Imágenes
+    Resultado Esperado: Todas las imágenes de productos deben cargar correctamente (no rotas).
+    """
+    
+    # 1. PRECONDICIÓN: Login
+    login_page.login_to_app("standard_user", "secret_sauce")
+    
+    # 2. INICIALIZACIÓN
+    inventory = InventoryPage(page)
+    
+    # 3. ACCIÓN: Localizar todas las imágenes de los productos
+    # Usamos el selector de las imágenes de los artículos del inventario
+    imagenes = page.locator(".inventory_item_img img")
+    
+    # 4. CAPTURA Y VALIDACIÓN:
+    # Contamos cuántas imágenes hay para iterar sobre ellas
+    count = imagenes.count()
+    
+    for i in range(count):
+        # Para cada imagen, ejecutamos un JS que verifica su ancho natural
+        is_broken = imagenes.nth(i).evaluate("img => img.naturalWidth === 0")
+        
+        # Si is_broken es True, el assert fallará
+        assert not is_broken, f"Error TC013: La imagen en la posición {i} está rota."
