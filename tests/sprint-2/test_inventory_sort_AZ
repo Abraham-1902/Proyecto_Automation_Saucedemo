@@ -1,0 +1,31 @@
+from playwright.sync_api import Page
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+
+def test_TC011_sort_products_name_a_to_z(login_page, page: Page):
+    """
+    ID: TC011
+    Escenario: Ordenamiento por Nombre (A to Z)
+    Resultado Esperado: Los nombres deben estar en orden alfabético ascendente.
+    """
+    
+    # 1. PASO DE LOGIN (Precondición obligatoria)
+    # Usamos la fixture login_page que ya está configurada en conftest.py
+    login_page.login_to_app("standard_user", "secret_sauce")
+    
+    # 2. INICIALIZACIÓN DE LA PÁGINA
+    # Creamos la instancia para poder usar los métodos del InventoryPage
+    inventory = InventoryPage(page)
+    
+    # 3. ACCIÓN DE ORDENAMIENTO
+    # 'az' es el valor que el sistema de SauceDemo reconoce para este filtro
+    inventory.sort_by_value("az")
+    
+    # 4. CAPTURA DE DATOS
+    # Obtenemos la lista actual de nombres que muestra la pantalla
+    nombres_obtenidos = inventory.get_all_product_names()
+    
+    # 5. VALIDACIÓN LÓGICA
+    # Comparamos la lista real contra una lista ordenada por Python (sorted)
+    assert nombres_obtenidos == sorted(nombres_obtenidos), \
+        f"Fallo en TC011: El orden esperado era {sorted(nombres_obtenidos)} pero se obtuvo {nombres_obtenidos}"
