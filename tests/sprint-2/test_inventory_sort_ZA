@@ -1,0 +1,34 @@
+from playwright.sync_api import Page
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+
+def test_TC012_sort_products_name_z_to_a(login_page, page: Page):
+    """
+    ID: TC012
+    Escenario: Ordenamiento por Nombre (Z to A)
+    Resultado Esperado: Los productos deben mostrarse de la Z a la A.
+    """
+    
+    # 1. PRECONDICIÓN: Iniciar sesión
+    # La fixture login_page prepara el objeto, pero nosotros ejecutamos la acción
+    login_page.login_to_app("standard_user", "secret_sauce")
+    
+    # 2. INICIALIZACIÓN
+    # Cargamos la página de inventario para usar sus métodos
+    inventory = InventoryPage(page)
+    
+    # 3. ACCIÓN: Seleccionar el filtro Z-A
+    # El valor 'za' es el estándar del dropdown en SauceDemo
+    inventory.sort_by_value("za")
+    
+    # 4. CAPTURA DE DATOS
+    # Extraemos todos los nombres visibles después de aplicar el filtro
+    nombres_web = inventory.get_all_product_names()
+    
+    # 5. VALIDACIÓN LÓGICA
+    # Generamos la lista esperada ordenando con reverse=True
+    nombres_esperados = sorted(nombres_web, reverse=True)
+    
+    # Comprobación final
+    assert nombres_web == nombres_esperados, \
+        f"Error TC012: El orden Z-A falló. Obtenido: {nombres_web}"
